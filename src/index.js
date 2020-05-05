@@ -2,10 +2,11 @@ import i18n from '../i18n';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import turfCircle from '@turf/circle';
-import {point as turfPoint} from '@turf/helpers'
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+import { point as turfPoint } from '@turf/helpers';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mun_bbox from './mun_bbox';
+import { ACCESS_TOKEN_MAPBOX, DEFAULT_LNG, DEFAULT_LAT } from './constants';
 
 const lang = i18n.languages[0];
 
@@ -20,13 +21,14 @@ if(i18nBundle) {
     }
 }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VvbWF0aWNvIiwiYSI6ImNrOWVwbDZkNjAzeXEzbWp3OGtscmI2N2sifQ.qed5igebU5jj0xOeiWtHYQ'
+mapboxgl.accessToken = ACCESS_TOKEN_MAPBOX;
+
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     //style: 'https://geoserveis.icgc.cat/contextmaps/osm-bright.json',
     //style: 'img/osm-bright-icgc-cloudfront.json',
-    center: [-3.69, 40.41],
+    center: [DEFAULT_LNG, DEFAULT_LAT],
     zoom: 5,
     bearing: 0
 });
@@ -137,7 +139,7 @@ map.addControl(
         zoom: 17,
         marker: false,
         language: lang,
-        countries: 'es',
+        countries: 'py',
         minLength: 3
     })
 );

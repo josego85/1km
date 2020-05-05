@@ -25,7 +25,7 @@ i18n.use(LanguageDetector)
             },
             gl: {
                 translation: gl
-            },
+            }
         },
         load: 'languageOnly',
         whitelist: ['es', 'ca', 'en', 'gl'],
